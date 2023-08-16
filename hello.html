@@ -10,12 +10,14 @@
     <script>
       // 钉钉分享
       function DingDingShare() {
+        alert(dd);
         console.log(dd);
         //window.navigator.userAgent属性包含了浏览器类型、版本、操作系统类型、浏览器引擎类型等信息，这个属性可以用来判断浏览器类型
         var ua = navigator.userAgent.toLowerCase();
         alert(ua);
         console.log(ua);
         var ding = ua.indexOf('dingtalk') >= 0; // 判断是不是钉钉
+        alert(dd.env.platform);
         if (ding && dd.env.platform !== 'notInDingTalk') {
           // 判断是不是钉钉,这个是true
           var newBaseUrl = window.location.href; //分享地址
