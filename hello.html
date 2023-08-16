@@ -13,6 +13,7 @@
         console.log(dd);
         //window.navigator.userAgent属性包含了浏览器类型、版本、操作系统类型、浏览器引擎类型等信息，这个属性可以用来判断浏览器类型
         var ua = navigator.userAgent.toLowerCase();
+        alert(ua);
         console.log(ua);
         var ding = ua.indexOf('dingtalk') >= 0; // 判断是不是钉钉
         if (ding && dd.env.platform !== 'notInDingTalk') {
@@ -33,6 +34,7 @@
                 content: desc,
                 image: shareImg,
                 onSuccess: function () {
+                  alert('success');
                   //onSuccess将在调起分享组件成功之后回调
                   /**/
                 },
