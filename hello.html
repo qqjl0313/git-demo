@@ -23,7 +23,7 @@
           var newBaseUrl = window.location.href; //分享地址
           var title = "你好"; //分享标题
           var desc = "描述"; // 分享内容
-          var shareImg = baseUrl + '/images/label-ico2.png'; // 分享图片地址
+          // var shareImg = baseUrl + '/images/label-ico2.png'; // 分享图片地址
           dd.biz.navigation.setRight({
             show: true, // 控制按钮显示， true 显示， false 隐藏， 默认true
             control: true, // 是否控制点击事件，true 控制，false 不控制， 默认false
@@ -34,7 +34,7 @@
                 url: newBaseUrl,
                 title: title,
                 content: desc,
-                image: shareImg,
+                image: '',
                 onSuccess: function () {
                   alert('success');
                   //onSuccess将在调起分享组件成功之后回调
