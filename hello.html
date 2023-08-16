@@ -17,7 +17,7 @@
         console.log(ua);
         var ding = ua.indexOf('dingtalk') >= 0; // 判断是不是钉钉
         alert(dd.env.platform);
-        if (ding && dd.env.platform !== 'notInDingTalk') {
+        if (true || ding && dd.env.platform !== 'notInDingTalk') {
           // 判断是不是钉钉,这个是true
           var newBaseUrl = window.location.href; //分享地址
           var title = "你好"; //分享标题
@@ -33,13 +33,15 @@
                 url: newBaseUrl,
                 title: title,
                 content: desc,
-                image: '',
+                // image: '',
                 onSuccess: function () {
                   alert('success');
                   //onSuccess将在调起分享组件成功之后回调
                   /**/
                 },
-                onFail: function (err) {},
+                onFail: function (err) {
+                  alert(err);
+                },
               });
             },
             onFail: function (err) {
@@ -50,7 +52,7 @@
       }
     </script>
 
-    <h1>Hello World 你好11</h1>
+    <h1>Hello World 你好111</h1>
     <a href="javascript:DingDingShare();">点击分享</a>
   </body>
 </html>
