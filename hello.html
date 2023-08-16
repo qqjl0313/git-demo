@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>你好世界</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="https://g.alicdn.com/dingding/dingtalk-jsapi/2.14.1/dingtalk.open.js"></script>
+    <script>
+      // 钉钉分享
+      function DingDingShare() {
+        console.log(dd);
+        //window.navigator.userAgent属性包含了浏览器类型、版本、操作系统类型、浏览器引擎类型等信息，这个属性可以用来判断浏览器类型
+        var ua = navigator.userAgent.toLowerCase();
+        console.log(ua);
+        var ding = ua.indexOf('dingtalk') >= 0; // 判断是不是钉钉
+        if (ding && dd.env.platform !== 'notInDingTalk') {
+          // 判断是不是钉钉,这个是true
+          var newBaseUrl = window.location.href; //分享地址
+          var title = "你好"; //分享标题
+          var desc = "描述"; // 分享内容
+          var shareImg = baseUrl + '/images/label-ico2.png'; // 分享图片地址
+          dd.biz.navigation.setRight({
+            show: true, // 控制按钮显示， true 显示， false 隐藏， 默认true
+            control: true, // 是否控制点击事件，true 控制，false 不控制， 默认false
+            text: '···', // 控制显示文本，空字符串表示显示默认文本
+            onSuccess: function (result) {
+              dd.biz.util.share({
+                type: 0,
+                url: newBaseUrl,
+                title: title,
+                content: desc,
+                image: shareImg,
+                onSuccess: function () {
+                  //onSuccess将在调起分享组件成功之后回调
+                  /**/
+                },
+                onFail: function (err) {},
+              });
+            },
+            onFail: function (err) {
+              alert('点击右上角失败');
+            },
+          });
+        }
+      }
+    </script>
+
+    <h1>Hello World</h1>
+    <a href="javascript:DingDingShare();">点击分享</a>
+  </body>
+</html>
