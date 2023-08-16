@@ -18,41 +18,26 @@
         var ding = ua.indexOf('dingtalk') >= 0; // 判断是不是钉钉
         alert(dd.env.platform);
         if (ding && dd.env.platform !== 'notInDingTalk') {
-          // 判断是不是钉钉,这个是true
-          var newBaseUrl = window.location.href; //分享地址
-          var title = "你好"; //分享标题
-          var desc = "描述"; // 分享内容
-          // var shareImg = baseUrl + '/images/label-ico2.png'; // 分享图片地址
-          dd.biz.navigation.setRight({
-            show: true, // 控制按钮显示， true 显示， false 隐藏， 默认true
-            control: true, // 是否控制点击事件，true 控制，false 不控制， 默认false
-            text: '···', // 控制显示文本，空字符串表示显示默认文本
-            onSuccess: function (result) {
-              dd.biz.util.share({
-                type: 0,
-                url: newBaseUrl,
-                title: title,
-                content: desc,
-                image: '',
-                onSuccess: function () {
-                  alert('success');
-                  //onSuccess将在调起分享组件成功之后回调
-                  /**/
-                },
-                onFail: function (err) {
-                  alert(err);
-                },
-              });
+          dd.biz.util.share({
+            type: 0,
+            url: window.location.href, //分享地址
+            title: '你好',
+            content: '描述',
+            image: '',
+            onSuccess: function () {
+              alert('success');
+              //onSuccess将在调起分享组件成功之后回调
+              /**/
             },
             onFail: function (err) {
-              alert('点击右上角失败');
+              alert(err);
             },
           });
         }
       }
     </script>
 
-    <h1>Hello World 你好11</h1>
+    <h1>Hello World 你好1111</h1>
     <a href="javascript:DingDingShare();">点击分享</a>
   </body>
 </html>
